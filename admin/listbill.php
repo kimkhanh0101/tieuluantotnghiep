@@ -5,12 +5,12 @@ include ("../helpers/format.php");
 
 ?>
 <?php include '../classes/bill.php'?>
-<?php 
+<?php
     $bill = new bill();
   $fm=new format();
-    
+
  ?>
- <?php 
+ <?php
 
    if(isset($_POST["test"])){
      $id = $_POST["test"];
@@ -22,14 +22,14 @@ include ("../helpers/format.php");
 
       $deleteBill = $bill->deleteBill($id);
      }
-    
-    
+
+
     }
 
   }
-  
-     
-  
+
+
+
 
  ?>
  <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,9 +41,9 @@ include ("../helpers/format.php");
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        
+
       </div>
-     
+
       <form action="" method="POST">
 
         <div class="modal-body">
@@ -54,18 +54,18 @@ include ("../helpers/format.php");
                 <input type="hidden" name="test" id="test"  value="">
                 <!-- <input type="text" name="brandName" class="form-control" placeholder="Enter Brand"> -->
                 <select class="form-control"  id="status" name="status">
-                    
-                  
+
+
                         <option  selected value="0">Đang Xử Lý</option>
                         <option value="1">Đang Giao Hàng</option>
                         <option value="2">Thành Công</option>
                         <option value="3">Xóa Đơn</option>
-                   
+
                   </select>
-                
+
             </div>
-            
-        
+
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -82,19 +82,19 @@ include ("../helpers/format.php");
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Danh Sách Đơn Hàng
-            
+
     </h6>
-    
+
   </div>
 
   <div class="card-body">
   <form action="" method="post">
-  
+
 
     <div class="table-responsive">
 
-      
-      <?php 
+
+      <?php
           $level=session::get("level");
           if ($level==1) { ?>
             <table class="table table-bordered" id="dataTable"  width="100%" cellspacing="0">
@@ -110,22 +110,22 @@ include ("../helpers/format.php");
         </thead>
         <tbody>
             <?php
-                    
+
                     $get_Bill=$bill->get_Bill();
                     if ($get_Bill){
                     while ($result=$get_Bill->fetch_assoc()) {
-                    
-                    
+
+
                     ?>
           <tr>
-             
+
             <td value="idbill" name="idbill" data-name="<?= $result['order_Id'] ?>" ><a href="billdetails.php?idbill=<?php echo $result['order_Id']?>"> <?php echo $result['order_Id'] ?></a></td>
             <td><?php echo $fm->formatDate($result['date']) ?></td>
             <td><?php echo $result['receiver'] ?></td>
-            <td>$<?php echo $fm->format_currency($result['totalprice']) ?></td>
+            <td><?php echo $fm->format_currency($result['totalprice']) ?></td>
             <td><?php echo $result['address'] ?></td>
-            
-                
+
+
             <?php
                   if ($result['status']==0) {
                     echo '<td class="text-danger">Đang Xử Lý</td>';
@@ -136,9 +136,9 @@ include ("../helpers/format.php");
                   else
                       echo '<td class="text-danger">Hủy Đơn Hàng</td>';
                   ?>
-       
-                    
-               
+
+
+
           </tr>
          <?php
                     }
@@ -147,7 +147,7 @@ include ("../helpers/format.php");
         </tbody>
       </table>
 
-       <?php     
+       <?php
           }else{ ?>
 <table class="table table-bordered" id="dataTable"  width="100%" cellspacing="0">
         <thead>
@@ -163,22 +163,22 @@ include ("../helpers/format.php");
         </thead>
         <tbody>
             <?php
-                    
+
                     $get_Bill=$bill->get_Bill();
                     if ($get_Bill){
                     while ($result=$get_Bill->fetch_assoc()) {
-                    
-                    
+
+
                     ?>
           <tr>
-             
+
             <td value="idbill" name="idbill" data-name="<?= $result['order_Id'] ?>" ><a href="billdetails.php?idbill=<?php echo $result['order_Id']?>"> <?php echo $result['order_Id'] ?></a></td>
             <td><?php echo $fm->formatDate($result['date']) ?></td>
             <td><?php echo $result['receiver'] ?></td>
-            <td>$<?php echo $fm->format_currency($result['totalprice']) ?></td>
+            <td><?php echo $fm->format_currency($result['totalprice']) ?></td>
             <td><?php echo $result['address'] ?></td>
-            
-                
+
+
             <?php
                   if ($result['status']==0) {
                     echo '<td class="text-danger">Đang Xử Lý</td>';
@@ -189,17 +189,17 @@ include ("../helpers/format.php");
                   else
                       echo '<td class="text-danger">Hủy Đơn</td>';
                   ?>
-       
-                    
-               
-          
+
+
+
+
             <td>
-                
-      
-               
+
+
+
                   <input  id="edit" type="button" name="submit" class="btn btn-primary" value="Cập nhật trạng thái" data-toggle="modal" data-target="#addadminprofile">
-                 
-               
+
+
             </td>
           </tr>
          <?php
@@ -208,11 +208,11 @@ include ("../helpers/format.php");
                     ?>
         </tbody>
       </table>
-  
+
       <?php
           }
-       ?>         
-        
+       ?>
+
     </div>
   </form>
   </div>
@@ -221,21 +221,21 @@ include ("../helpers/format.php");
 </div>
 <script>
   $(document).ready(function(){
-    
+
     $("#dataTable").on('click','#edit',function(){
-      
+
       var currentRow = $(this).closest("tr");
       var id=currentRow.find("td:eq(0)").text();
-      // var status=currentRow.find("td:eq(5)").val(); 
-      
+      // var status=currentRow.find("td:eq(5)").val();
+
       // var show = id;
       // alert(show);
       $("#test").val(id);
       // $("#statuss").val(matp);
     });
  });
-  
-  
+
+
 </script>
 <?php
 include('includes/scripts.php');

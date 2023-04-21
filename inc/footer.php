@@ -4,7 +4,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.php"><img src="img/footerlogo.jpg" alt=""></a>
+                            <a href="./index.php"><img src="img/3.png" alt=""></a>
                         </div>
                         <ul>
                             <li>  Address: 3/2, Ninh Kiều, Cần Thơ</li>

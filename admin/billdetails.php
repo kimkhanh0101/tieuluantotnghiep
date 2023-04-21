@@ -1,6 +1,6 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('includes/header.php');
+include('includes/navbar.php');
 
 ?>
 <?php include '../classes/brand.php'?>
@@ -10,18 +10,18 @@ include('includes/navbar.php');
 
 
 
-<?php 
+<?php
   $fm = new Format();
   $brand = new brand();
   $cat = new category();
   $prod = new product();
   $bill = new bill();
-  
+
           if(isset($_POST["delete_id"])){
           $id = $_POST["delete_id"];
         $delbrand = $prod->delete_productName($id);
           }
-   
+
  ?>
 
 
@@ -44,18 +44,18 @@ h4{
   padding-top: 9px;
 }
 </style>
- 
+
 <!-- /.container-fluid -->
 
 
-<?php 
+<?php
 
   if (isset($_GET['idbill'])) {
       $id_bill=$_GET['idbill'];
     }
-    
-  
-  
+
+
+
 
  ?>
 
@@ -65,11 +65,11 @@ h4{
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">BILL DETAILS 
+    <h6 class="m-0 font-weight-bold text-primary">BILL DETAILS
 
     </h6>
      <form action="" method="POST">
-           
+
   </div>
 
   <div class="card-body">
@@ -78,14 +78,14 @@ h4{
 
      <form action="" method="POST">
       <h4>PRODUCT ORDER</h4>
-      
-      
+
+
         </tbody>
       <div class="scroll">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            
+
             <th> Product name </th>
             <th> Image </th>
             <th> Size </th>
@@ -94,30 +94,30 @@ h4{
           </tr>
         </thead>
         <tbody>
-          <?php 
-             
+          <?php
+
 
 
               $get_BillDetails=$bill->get_BillDetails($id_bill);
               if ($get_BillDetails){
                   while ($result=mysqli_fetch_array($get_BillDetails)) {
-                      
-           
+
+
              ?>
           <tr>
-            
+
             <td> <?php echo $result['productName']; ?></td>
-            <td><img src="uploads/<?php echo $result['image']?>" width="70" ></td> 
+            <td><img src="uploads/<?php echo $result['image']?>" width="70" ></td>
             <td> <?php echo $result['size']; ?></td>
             <td> <?php echo $result['quantity']; ?></td>
-           
-             <td>$<?php echo  $fm->format_currency($result['price']) ?></td>
+
+             <td><?php echo  $fm->format_currency($result['price']) ?></td>
            </tr>
 
         <?php
           }
             }
-            ?>  
+            ?>
         </tbody>
       </table>
       </div>
@@ -125,7 +125,7 @@ h4{
        </form>
 
     </div>
-      
+
   </div>
 
 </div>
@@ -146,7 +146,7 @@ h4{
                 data:data
             }).done(function(result){
                 $('#size').html(result);
-                
+
             })
         })
 

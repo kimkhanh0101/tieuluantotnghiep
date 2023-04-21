@@ -46,11 +46,11 @@ include 'inc/header.php';
                              <?php
                         $show = $brand->show_brand();
                         if($show){
-                           
+
                             while($result = $show->fetch_assoc()){
-                         ?>      
+                         ?>
                         <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName'] ?></a></li>
-                        <?php 
+                        <?php
                             }
                         }
                          ?>
@@ -106,7 +106,7 @@ include 'inc/header.php';
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
     <div class="container">
-        
+
         <div class="checkout__form">
             <h4>Chi tiết đơn hàng</h4>
             <form action="" method="post">
@@ -117,7 +117,7 @@ include 'inc/header.php';
                         $show_Cus = $user->Get_User($userr);
                         if($show_Cus){
                         while($result =$show_Cus->fetch_assoc()){
-                        
+
                         ?>
                         <!-- <div class="row">
                             <div class="col-lg-6">
@@ -137,12 +137,12 @@ include 'inc/header.php';
                             <p>Tên khách hàng<span>*</span></p>
                             <input type="text" name="name" value="<?php echo $result['nameCus'] ?>">
                         </div>
-                        
-                        
+
+
                         <div class="checkout__input">
                             <p>Địa chỉ<span>*</span></p>
                             <input type="text" name="address" value="<?php echo $result['address'] ?>" class="checkout__input__add">
-                            
+
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
@@ -158,7 +158,7 @@ include 'inc/header.php';
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <?php
                     }
@@ -167,22 +167,22 @@ include 'inc/header.php';
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h4>Đơn hàng của bạn</h4>
-                            <div class="checkout__order__products">Products  <span>Total</span> </div>
+                            <div class="checkout__order__products">Sản phẩm  <span>Tổng</span> </div>
                             <ul>
                                 <?php
-                                
+
                                 $get_cat = $ct->get_Cart();
                                 if($get_cat){
-                                
+
                                 while ($result = $get_cat->fetch_assoc()) {
-                                
-                                
+
+
                                 ?>
                                 <li>  <?php
-                                    
+
                                     echo $fm->textShorten($result['productName'],25);
                                     echo " X".$result['quantity'];
-                                    ?>  <span><?php echo "$".$fm->format_currency($result['price'])?></span>
+                                    ?>  <span><?php echo $fm->format_currency($result['price'])?></span>
                                     <span></span>
                                 </li>
                                     <input type="hidden" name="quantity" value="<?php echo $result['quantity']?>"/>
@@ -192,17 +192,17 @@ include 'inc/header.php';
                                     }
                                     ?>
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span><?php
+                                <div class="checkout__order__subtotal">Tổng tiền hàng <span><?php
                                                                        $qtt=Session::get("total");
-                                    echo "VNĐ".$fm->format_currency($qtt) ;
+                                    echo $fm->format_currency($qtt) . "" ;
                                 ?></span></div>
-                                <div class="checkout__order__total">Total <span><?php
-                                   
+                                <div class="checkout__order__total">Tổng cộng <span><?php
+
                                     $qtt=Session::get("total");
-                                    echo "VNĐ".$fm->format_currency($qtt) ;
+                                    echo $fm->format_currency($qtt) . "";
                                 ?></span></div>
-                                
-                                <input type="submit" name="submit_buy"  value="Place Order" style="margin-left: 70px; font-size: 30px;  padding: 0 10px;background:#7fad39; color: white; ">
+
+                                <input type="submit" name="submit_buy"  value="Đặt hàng" style="margin-left: 70px; font-size: 30px;  padding: 0 10px;background:#7fad39; color: white; ">
                                 <!-- <a href="success.php"  type="submit" name="submit_buy" style="margin-left: 70px; font-size: 30px;  padding: 0 10px;background:#7fad39; color: white; ">Place Order</a> -->
                             </div>
                         </div>
@@ -210,13 +210,13 @@ include 'inc/header.php';
                 </form>
             </div>
         </div>
-        
+
     </section>
-    
-    
+
+
     <?php
-    
+
     include 'inc/footer.php';
-    
+
     ob_end_flush();
     ?>

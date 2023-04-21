@@ -2,7 +2,7 @@
     include 'inc/header.php';
 
 ?>
-<?php 
+<?php
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['discount'])){
         $code = $_POST['codediscount'];
    }else{
@@ -12,7 +12,7 @@
         $code = "";
    }
  ?>
- <?php  
+ <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitupdate'])){
        $cartId = $_POST['cartId'];
        $quantity = $_POST['quantity'];
@@ -20,23 +20,23 @@
         $update_Slcart = $ct->update_Slcart($quantity,$cartId);
     }
 ?>
-<?php  
+<?php
     if(isset($_GET['delid'])){
         $id = $_GET['delid'];
         $delcat = $ct->delete_cart($id);
     }
 
 ?>
-<?php 
+<?php
     $check = Session::get('customer_login');
     if($check== false){
         header('Location:login.php');
     }else
     {
-        
+
     }
  ?>
-<?php  
+<?php
     if(!isset($_GET['id'])){
        echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
 
@@ -44,7 +44,7 @@
 
 ?>
 <style type="text/css">
-    
+
     button.stylinggg {
         display: inline-block;
   padding: 3px 9px;
@@ -77,7 +77,7 @@
 
 
 
-</style> 
+</style>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -85,7 +85,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    
+
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
+                        <h2>Giỏ hàng</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>Giỏ hàng</span>
@@ -153,16 +153,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
                                 $a=0;
-                                $sub_total = 0; 
+                                $sub_total = 0;
                                 $sl = 0;
                                 $get_cat = $ct->get_Cart();
                                 if($get_cat){
-                                    
+
                                     while ($result = $get_cat->fetch_assoc()) {
-                                            
-                           
+
+
                             ?>
                                 <tr>
                                     <td class="shoping__cart__item">
@@ -170,10 +170,10 @@
                                         <h5><?php echo $result['productName']?> </h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        <?php echo 'VNĐ'.$fm->format_currency($result['price'])?> 
+                                        <?php echo $fm->format_currency($result['price']) . ''?>
                                     </td>
                                     <td class="shoping__cart__price">
-                                         <?php echo $result['size']?> 
+                                         <?php echo $result['size']?>
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <form action="" method="post">
@@ -190,8 +190,8 @@
                                     </td>
 
                                     <td class="shoping__cart__total">
-                                        <?php $total= $result['price'] * $result['quantity'];                               
-                                    echo 'VNĐ'.$fm->format_currency($total);
+                                        <?php $total= $result['price'] * $result['quantity'];
+                                    echo $fm->format_currency($total) . '';
                                     $sl +=$result['quantity'];
                                     ?>
                                     </td>
@@ -200,7 +200,7 @@
                                         <td><a onclick ="return confirm('Bạn có muốn xóa?')" href="?delid=<?php echo $result['cartId']?>">X</a></td>
                                     </td>
                                 </tr>
-                            <?php 
+                            <?php
                             $sub_total += $total;
                             }
 
@@ -224,7 +224,7 @@
                         <div class="shoping__discount">
                             <h5>Mã giảm giá</h5>
                             <form action="" method="post">
-                                <input type="text" name="codediscount" placeholder="Enter your coupon code">
+                                <input type="text" name="codediscount" placeholder="Nhập mã giảm giá">
                                 <button type="submit" name="discount" class="site-btn">Áp dụng phiếu giảm giá</button>
                                 <!-- <button type="submit" name="undiscount" class="site-btn">APPLY COUPON</button> -->
                             </form>
@@ -236,78 +236,78 @@
                     <div class="shoping__checkout">
                         <h5>Tổng số giỏ hàng</h5>
                         <ul>
-                            <li>Tổng tiền hàng <span><?php  
-                                    
-                                    echo 'VNĐ'.$fm->format_currency($sub_total);
-                                    
+                            <li>Tổng tiền hàng <span><?php
+
+                                    echo $fm->format_currency($sub_total) . '';
+
                                 ?></span></li>
-                            <?php 
+                            <?php
                                     $discount = $ct->get_Discount($code);
                                     if($discount){
-                                    
-                                        while ($result = $discount->fetch_assoc()) {
-                                            
-                           
-                                ?>    
-                                 
-                            <li>Giảm giá (<?php echo $result['code']?>) 
 
-                                <span><?php echo $result['discount']."%"?>(<?php 
+                                        while ($result = $discount->fetch_assoc()) {
+
+
+                                ?>
+
+                            <li>Giảm giá (<?php echo $result['code']?>)
+
+                                <span><?php echo $result['discount']."%"?>(<?php
                                         $a =($result['discount']*$sub_total)/100;
-                                        echo 'VNĐ'.$fm->format_currency($a);
+                                        echo $fm->format_currency($a) . '';
 
                                   ?>)</span>
-                                <?php 
+                                <?php
                                     if($result['code']!=""){
 
 
                                  ?>
                                 <button type="submit" name="undiscount" class="stylinggg">remove</button>
-                                <?php 
+                                <?php
                                 } ?>
                             </li>
 
-                            <li>Tổng thanh toán<span><?php  
-                                    
+                            <li>Tổng thanh toán<span><?php
+
                                      $alltotal= ($sub_total - $a);
-                                     echo 'VNĐ'.$fm->format_currency($alltotal);
+                                     echo $fm->format_currency($alltotal). '';
                                     Session::set('qtt',$sl);
                                     Session::set('total',$alltotal);
                                 ?></td></span></li>
-                                <?php 
-                            
+                                <?php
+
                             }
 
                                     }else{
                                      ?>
-                                         
-                                    <li>Tổng cộng <span><?php  
-                                    
+
+                                    <li>Tổng cộng <span><?php
+
                                     $alltotal= ($sub_total - $a);
-                                    echo 'VNĐ'.$fm->format_currency($alltotal);
+                                    echo $fm->format_currency($alltotal) . '';
                                     Session::set('qtt',$sl);
                                     Session::set('total',$alltotal);
                                 ?></td></span></li>
-                                   <?php  
+                                   <?php
                                    }
-                                   ?> 
-                           
+                                   ?>
+
 
                         </ul>
-                        <?php 
+                        <?php
                             $qtt=Session::get("qtt");
                             if($qtt!='0'){
                          ?>
                         <a href="checkout.php" class="primary-btn">Tiến hành kiểm tra</a>
-                        <?php 
+                        <?php
                         }else{
 
                          ?>
                            <a href="index.php" class="primary-btn">Tiến hành kiểm tra</a>
-                           <?php 
+                           <?php
                               }
                                                 ?>
-                      
+
                     </div>
                     </form>
                 </div>
@@ -318,9 +318,9 @@
 
     <!-- Footer Section Begin -->
    <?php
-    
+
     include 'inc/footer.php';
-    
+
 ob_end_flush();
 
 ?>

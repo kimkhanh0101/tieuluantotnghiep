@@ -1,4 +1,4 @@
-<?php 
+<?php
     include 'inc/header.php';
 
 ?>
@@ -16,11 +16,11 @@
                              <?php
                         $show = $brand->show_brand();
                         if($show){
-                           
+
                             while($result = $show->fetch_assoc()){
-                         ?>      
+                         ?>
                         <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName'] ?></a></li>
-                        <?php 
+                        <?php
                             }
                         }
                          ?>
@@ -66,7 +66,7 @@
                         <h2>KHÁNH FLOWER</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Trang chủ</a>
-                          
+
                         <span>Tất cả sản phẩm</span>
                         </div>
                     </div>
@@ -87,20 +87,20 @@
                             <?php
                         $show = $brand->show_brand();
                         if($show){
-                           
+
                             while($result = $show->fetch_assoc()){
-                               
-                        
+
+
                     ?>
                         <ul>
 
                             <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName']; ?></a></li>
-                            
+
                         </ul>
                         <?php
                     }
                         }
-                        ?> 
+                        ?>
                         </div>
                         <div class="sidebar__item">
                             <h4>Giá</h4>
@@ -185,18 +185,18 @@
                                 </label>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
-                   
+
                         <div class="section-title product__discount__title">
-                                   <?php  
-                            
+                                   <?php
+
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                              $name=$_POST['search'];
                              echo "<h2>Search By '$name'</h2>";
-                            
+
                         }elseif($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['namepro'])) {
                             $name=$_GET['namepro'];
                            echo "<h2>Search By '$name'</h2>";
@@ -205,15 +205,15 @@
                            echo "<h2>$brandname's Product </h2>";
                         } else{
                            echo'<h2>TẤT CẢ SẢN PHẨM</h2>';
-                        
-                        }
-                       
-                        
-                        
 
-                        
+                        }
+
+
+
+
+
                         ?>
-                            
+
                             <div class="filter__item">
                         <div class="row">
                             <div class="col-lg-4 col-md-5">
@@ -227,7 +227,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -239,35 +239,35 @@
                         </div>
                     </div>
                     <div class="row">
-                            <?php  
+                            <?php
                             if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['namepro'])) {
                                  $searchget=" A.productName LIKE  '%".$_GET['namepro']."%' AND";
                              }else{
                                 $searchget="";
                              }
-                        
+
                         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
                              $searchpost=" A.productName LIKE  '%".$_POST['search']."%' AND";
-                             
-                            
+
+
                         }else{
                            $searchpost='';
                         }
 
-                        
-                            
-                        
-                 ?>
-                        
 
-             <?php 
+
+
+                 ?>
+
+
+             <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['brandid'])) {
                     $id=$_GET['brandid'];
                     $getProByBrand=$pro->Show_ProductByBrand($id);
                     if($getProByBrand){
                             while ($result = $getProByBrand->fetch_assoc()) {
 
-                        
+
                ?>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -280,20 +280,20 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="details.php?proname=<?php echo $result['productName'] ?>"><?php echo $result['productName'] ?></a></h6>
-                                    <h5>VNĐ<?php echo  $fm->format_currency($result['price']) ?></h5>
+                                    <h5><?php echo  $fm->format_currency($result['price']) ?> </h5>
                                 </div>
                             </div>
                         </div>
-            <?php 
+            <?php
                 }
             }
-             ?>            
-                                 
+             ?>
+
             <?php
                 }else{
                     $prodList = $pro->Show_Product($searchpost,$searchget);
                         if($prodList){
-                        
+
                             while ($result = $prodList->fetch_assoc()) {
             ?>
                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -307,23 +307,23 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="details.php?proname=<?php echo $result['productName'] ?>"><?php echo $result['productName'] ?></a></h6>
-                                    <h5>VNĐ<?php echo   $fm->format_currency($result['price']) ?></h5>
+                                    <h5><?= $fm->format_currency($result['price']) ?> </h5>
                                 </div>
                             </div>
                         </div>
 
-            <?php 
-                    }   
+            <?php
+                    }
                 }
             }
               ?>
                     </div>
                         </div>
-                        
-                  
-                    
+
+
+
                     <center>
-                        
+
                         <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
@@ -339,8 +339,8 @@
 
     <!-- Footer Section Begin -->
 <?php
-    
+
     include 'inc/footer.php';
-    
+
 
 ?>

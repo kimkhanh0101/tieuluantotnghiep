@@ -1,6 +1,6 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('includes/header.php');
+include('includes/navbar.php');
 
 ?>
 <?php include '../classes/brand.php'?>
@@ -13,24 +13,24 @@ include('includes/navbar.php');
   overflow: scroll;
 }
 </style>
-<?php 
+<?php
   $fm=new format();
   $brand = new brand();
   $cat = new category();
   $prod = new product();
-  
+
           if(isset($_POST["delete_id"])){
           $id = $_POST["delete_id"];
         $delbrand = $prod->delete_productName($id);
           }
-   
+
  ?>
 
 <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<?php 
+<?php
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
 
-       
+
 
         $insertProd = $prod->insert_product($_POST,$_FILES);
     }
@@ -42,9 +42,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        
+
       </div>
-     
+
       <form action="" method="POST" enctype="multipart/form-data">
 
         <div class="modal-body">
@@ -62,10 +62,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                                 $brandlist = $brand->show_brand();
                                 if($brandlist){
                                     while ($result = $brandlist->fetch_assoc()) {
-                                        
+
                             ?>
                                  <option value="<?php echo $result['brandId']?>"><?php echo $result['brandName']?></option>
-                            <?php  
+                            <?php
                                 }
                             }
                             ?>
@@ -82,10 +82,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                                 $catlist = $cat->show_category();
                                 if($catlist){
                                     while ($result = $catlist->fetch_assoc()) {
-                                        
+
                             ?>
                                  <option value="<?php echo $result['catId']?>" data-name="<?= $result['catName'] ?>"><?php echo $result['catName']?></option>
-                            <?php  
+                            <?php
                                 }
                             }
                             ?>
@@ -95,7 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
              <div class="form-group">
               <label >Size</label>
                 <select id="size" name="size" class="form-control">
-                  
+
                   <option>Select size</option>
                 </select>
             </div>
@@ -135,7 +135,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                             <option value="0">Không nổi bật</option>
                 </select>
             </div>
-        
+
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -148,7 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
 </div>
 
 
- 
+
 <!-- /.container-fluid -->
 
 
@@ -160,7 +160,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Sản Phẩm 
+    <h6 class="m-0 font-weight-bold text-primary">Danh Sách Sản Phẩm
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
              Thêm Sản Phẩm
             </button>
@@ -183,37 +183,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
             <th> Danh Mục </th>
             <th> Thương Hiệu </th>
             <th> Giá </th>
-           
+
             <th> Chi Tiết </th>
             <th> Thao tác </th>
           </tr>
         </thead>
         <tbody>
           <?php
-           
+
             $prodList = $prod->Show_ProductAdmin();
             if($prodList){
               $i = 0;
               while ($result = $prodList->fetch_assoc()) {
                 $i++;
-            
+
           ?>
           <tr>
             <td> <?php echo $i; ?> </td>
             <td> <?php echo $result['productName']; ?></td>
-            <td><img src="uploads/<?php echo $result['image']?>" width="70" ></td> 
+            <td><img src="uploads/<?php echo $result['image']?>" width="70" ></td>
             <td> <?php echo $result['catName']; ?></td>
             <td> <?php echo $result['brandName']; ?></td>
-           
-             <td>$<?php echo $fm->format_currency($result['price']) ?></td>
-             
-           
+
+             <td><?php echo $fm->format_currency($result['price']) ?></td>
+
+
 
             <td>
                 <form action="" method="post ">
-                   
+
                     <a href="productdetails.php?name=<?php echo $result['productName']?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Chi Tiết </a>
-                    
+
                 </form>
             </td>
             <td>
@@ -226,7 +226,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
         <?php
           }
             }
-            ?>  
+            ?>
         </tbody>
       </table>
       </div>
@@ -252,7 +252,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                 data:data
             }).done(function(result){
                 $('#size').html(result);
-                
+
             })
         })
 

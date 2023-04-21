@@ -3,7 +3,7 @@
     session::init();
      include_once ("lib/database.php");
     include_once ("helpers/format.php");
-    Spl_autoload_register(function ($className){ 
+    Spl_autoload_register(function ($className){
         include_once ("classes/".$className.".php");
     });
     $db=new database();
@@ -16,10 +16,10 @@
     $user=new User();
     $bill=new bill();
 ?>
-<?php 
+<?php
 $buyer= Session::get('customer_user');
  ?>
- <?php  
+ <?php
 
                 if(isset($_GET['customer_user'])){
                     $destroyCart = $ct->Del_cart_by_Session();
@@ -28,7 +28,7 @@ $buyer= Session::get('customer_user');
 
             ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="html">
 
 <head>
     <meta charset="UTF-8">
@@ -57,11 +57,11 @@ $buyer= Session::get('customer_user');
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<!--    <div id="preloder">-->
+<!--        <div class="loader"></div>-->
+<!--    </div>-->
 
-   
+
     <header class="header">
         <div class="header__top">
             <div class="container">
@@ -70,7 +70,7 @@ $buyer= Session::get('customer_user');
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> khanhB1910529@student.ctu.edu.vn</li>
-                                <li>Miễn phí giao hàng cho hóa đơn từ 99$</li>
+                                <li>Miễn phí giao hàng cho hóa đơn từ 150.000 VNĐ</li>
                             </ul>
                         </div>
                     </div>
@@ -82,25 +82,25 @@ $buyer= Session::get('customer_user');
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <?php 
+                            <?php
                                     $check = Session::get('customer_login');
                                     if($check== false){
                             ?>
-                                          
+
                                  <div class="header__top__right__social">
                                      <a href="register.php"><i ></i> Đăng ký</a>
-                                 </div><?php 
+                                 </div><?php
                                   }
-                             ?>             
+                             ?>
                             <div class="header__top__right__auth">
-                                <?php 
+                                <?php
                                       $check = Session::get('customer_login');
                                       if($check== false){
-                                          echo '<a href="login.php"><i class="fa fa-user"></i> Login</a>';
+                                          echo '<a href="login.php"><i class="fa fa-user"></i> Đăng nhấp</a>';
                                         }else
                                        {
 
-                                           echo '<a href="?customer_user='.Session::get('customer_user').'"><i class="fa fa-user"></i>Logout</a></div>'; 
+                                           echo '<a href="?customer_user='.Session::get('customer_user').'"><i class="fa fa-user"></i>Đăng xuất</a></div>';
                                           }
                                    ?>
                             </div>
@@ -121,9 +121,9 @@ $buyer= Session::get('customer_user');
                         <ul>
                             <li class="active"><a href="./index.php">Trang chủ</a></li>
                             <li><a href="./product.php">Sản phẩm</a></li>
-                            
-                            
-                            <?php 
+
+
+                            <?php
                                  $login = Session::get('customer_login');
                                  if($login == false){
                                    echo '';
@@ -132,7 +132,7 @@ $buyer= Session::get('customer_user');
                                      echo  '<li><a href="./profile.php">Thông tin </a></li>';
                                      echo  '<li><a href="./bill.php">Đơn hàng</a></li>';
                                    }
-                            ?>                         
+                            ?>
                         </ul>
                     </nav>
                 </div>
@@ -141,17 +141,17 @@ $buyer= Session::get('customer_user');
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="cart.php"><i class="fa fa-shopping-bag"></i> <span>
-                                <?php  
+                                <?php
                                         $qtt = '0';
                                         $qtt=Session::get("qtt");
                                         echo $qtt;
                                 ?></span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>
-                            <?php  
+                        <div class="header__cart__price">Tổng: <span>
+                            <?php
                                         $a = '0';
                                         $a=Session::get('total');
-                                        echo '$'.$fm->format_currency($a) ;
+                                        echo $fm->format_currency($a) ;
                             ?></span></div>
                     </div>
                 </div>

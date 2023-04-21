@@ -39,11 +39,11 @@ include 'inc/header.php';
                              <?php
                         $show = $brand->show_brand();
                         if($show){
-                           
+
                             while($result = $show->fetch_assoc()){
-                         ?>      
+                         ?>
                         <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName'] ?></a></li>
-                        <?php 
+                        <?php
                             }
                         }
                          ?>
@@ -98,7 +98,7 @@ include 'inc/header.php';
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
     <div class="container">
-        
+
         <div class="checkout__form">
             <h4>Hóa đơn chi tiết</h4>
             <div class="row">
@@ -116,14 +116,14 @@ include 'inc/header.php';
                     $get_Bill_by_Customer=$bill->get_Bill_by_Customer($cus);
                     if ($get_Bill_by_Customer){
                     while ($result=mysqli_fetch_array($get_Bill_by_Customer)) {
-                    
-                    
+
+
                     ?>
                     <tr>
                         <td>#<?php echo $result['order_Id'] ?></td>
                         <td><?php echo $fm->formatDate($result['date']) ?></td>
                         <td><?php echo $result['receiver'] ?></td>
-                        <td>$<?php echo  $fm->format_currency($result['totalprice']) ?></td>
+                        <td><?php echo  $fm->format_currency($result['totalprice']) ?></td>
                         <?php
                         if ($result['status']==0) {
                           echo '<td class="text-danger">Pedding</td>';
@@ -134,8 +134,8 @@ include 'inc/header.php';
                         else
                             echo '<td class="text-danger">Canncel</td>';
                         ?>
-                        
-                        
+
+
                         <td><a href="billdetails.php?idbill=<?php echo $result['order_Id']  ?>">Xem thông tin chi tiết</a></td>
                     </tr>
                     <?php

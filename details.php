@@ -1,13 +1,13 @@
-<?php 
+<?php
 ob_start();
     include 'inc/header.php';
 
 ?>
 
-<?php 
+<?php
     if(!isset($_GET['proname']) || $_GET['proname']==NULL){
         echo "<script>window.location = '404.php'</script>";
-        
+
     }else{
         $name = $_GET['proname'];
     }
@@ -21,7 +21,7 @@ ob_start();
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-   
+
     <section class="hero hero-normal">
     <div class="container">
         <div class="row">
@@ -35,11 +35,11 @@ ob_start();
                              <?php
                         $show = $brand->show_brand();
                         if($show){
-                           
+
                             while($result = $show->fetch_assoc()){
-                         ?>      
+                         ?>
                         <li><a href="product.php?brandid=<?php echo $result['brandId'] ?>,&brandName=<?php echo $result['brandName'] ?>"><?php echo $result['brandName'] ?></a></li>
-                        <?php 
+                        <?php
                             }
                         }
                          ?>
@@ -96,15 +96,15 @@ ob_start();
     <!-- Breadcrumb Section End -->
 
     <!-- Product Details Section Begin -->
-    <form action="" method="post">  
+    <form action="" method="post">
      <?php
-                    
+
                     $prodList = $pro->get_1Product($name);
                     if($prodList){
-                    
+
                         while ($result_1pro = $prodList->fetch_assoc()) {
-                            
-                        
+
+
                  ?>
 
     <section class="product-details spad">
@@ -141,25 +141,25 @@ ob_start();
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">VNĐ<?php echo  $fm->format_currency($result_1pro['price']) ?></div>
+                        <div class="product__details__price"><?php echo  $fm->format_currency($result_1pro['price']) ?> </div>
                         <p><?php echo $result_1pro['description']?></p>
-                         
+
                             <select id="size" name="size" class="">
                                 <!-- <option>Chọn size</option> -->
                                 <?php
-                   
+
                                     $size = $pro->getSize_1Product($name);
                                     if($size){
                                         while ($result1 = $size->fetch_assoc()) {
-                                            
+
                                     ?>
                                         <option><?php echo $result1['size']?></option>
-                                    <?php  
+                                    <?php
                                     }
                                 }
                                 ?>
                             </select>
-                        
+
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -167,10 +167,10 @@ ob_start();
                                 </div>
                             </div>
                         </div>
-                       
+
                         <!-- <a  class="primary-btn" name="submit">ADD TO CARD</a> -->
                         <button type="submit" class="site-btn" name="submit">ADD TO CARD</button>
-                        
+
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>Có sẵn</b> <span>Trong kho</span></li>
@@ -231,22 +231,22 @@ ob_start();
             </div>
         </div>
     </section>
-      <?php  
+      <?php
                                     }
                                 }
                                 ?>
-                                </form> 
-       
+                                </form>
+
     <!-- Product Details Section End -->
 
     <!-- Related Product Section Begin -->
-    
+
     <!-- Related Product Section End -->
 
     <!-- Footer Section Begin -->
 <?php
-    
+
     include 'inc/footer.php';
-    
+
 ob_end_flush();
 ?>

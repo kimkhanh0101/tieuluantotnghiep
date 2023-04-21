@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../lib/session.php';
 
 session::checkSession();
@@ -8,7 +8,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout'){
   Session::destroy();
 }
 ?>
-<?php   
+<?php
 $admin_user=session::get('admin_User');
 ?>
 <!-- Sidebar -->
@@ -18,7 +18,7 @@ $admin_user=session::get('admin_User');
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">BUG SHOP <sup></sup></div>
+    <div class="sidebar-brand-text mx-3">KHÁNH FLOWER <sup></sup></div>
   </a>
   <!-- Divider -->
   <hr class="sidebar-divider my-0">
@@ -50,9 +50,9 @@ $admin_user=session::get('admin_User');
         </div>
       </div>
     </li>
-    <?php 
+    <?php
     $check = Session::get('level');
-    if($check== '0'){ 
+    if($check== '0'){
      ?>
      <li class="nav-item">
       <a class="nav-link" href="listadmin.php">
@@ -75,7 +75,7 @@ $admin_user=session::get('admin_User');
         </li>
         <?php
       }else{
-        ?> 
+        ?>
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-plus"></i>
@@ -91,7 +91,7 @@ $admin_user=session::get('admin_User');
             </div>
           </li>
 
-        <?php }   ?> 
+        <?php }   ?>
 
 
 
@@ -154,7 +154,7 @@ $admin_user=session::get('admin_User');
       <!-- Topbar Search -->
       <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
-          <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm ..." aria-label="Search" aria-describedby="basic-addon2">
           <div class="input-group-append">
             <button class="btn btn-primary" type="button">
               <i class="fas fa-search fa-sm"></i>
@@ -176,7 +176,7 @@ $admin_user=session::get('admin_User');
           <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
             <form class="form-inline mr-auto w-100 navbar-search">
               <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm kiếm..." aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-primary" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -342,7 +342,7 @@ $admin_user=session::get('admin_User');
     <i class="fas fa-angle-up"></i>
   </a>
 
-  
+
   <!-- Logout Modal-->
   <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -361,8 +361,8 @@ $admin_user=session::get('admin_User');
                                     Session::destroy();
                                 }
                              ?>
-          <form action="login.php" method="POST"> 
-          
+          <form action="login.php" method="POST">
+
             <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
 
           </form>

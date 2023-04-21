@@ -154,7 +154,7 @@ body {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Bug Shop</title>
+	<title>Khánh Flower</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
@@ -186,7 +186,7 @@ body {
 			<h1>oops!</h1>
 			<h2>Error 404 : Page Not Found</h2>
 			<a href="index.php">Trở về</a>
-			
+
 		</div>
 	</div>
 

@@ -4,7 +4,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Bug Shop 2020</span>
+            <span>Copyright &copy; Khánh Flower 2023</span>
           </div>
         </div>
       </footer>
@@ -17,7 +17,7 @@
     </div>
     <!-- End of Content Wrapper -->
 
-    
+
 </body>
 
 </html>

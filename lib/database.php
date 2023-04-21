@@ -1,11 +1,11 @@
- 
+
 
 <?php
 class Database
 {
-  public $host   = "localhost";
+  public $host   = "127.0.0.1";
   public $user   = "root";
-  public $pass   = "";
+  public $pass   = "root";
   public $dbname = "shophoa";
 
 

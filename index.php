@@ -1,8 +1,6 @@
    <?php
 
     include 'inc/header.php';
-
-
     ?>
 
    <section class="hero">
@@ -108,7 +106,7 @@
                                </div>
                                <div class="featured__item__text">
                                    <h6><a href="#"><?php echo $result['productName'] ?></a></h6>
-                                   <h5>VNĐ<?php echo $result['price'] ?> </h5>
+                                   <h5> <?php echo $fm->format_currency($result['price']) ?>  </h5>
                                </div>
                            </div>
                        </div>
@@ -136,8 +134,6 @@
                 if ($get_ProductbyType) {
                     while ($result = $get_ProductbyType->fetch_assoc()) {
 
-
-
                 ?>
                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                            <div class="featured__item">
@@ -150,14 +146,14 @@
                                </div>
                                <div class="featured__item__text">
                                    <h6><a href="#"><?php echo $result['productName'] ?></a></h6>
-                                   <h5>VNĐ<?php echo $result['price'] ?> </h5>
+                                   <h5> <?= $fm->format_currency($result['price']) ?> </h5>
                                </div>
                            </div>
                        </div>
                <?php
                     }
                 }
-                
+
                 ?>
 
            </div>

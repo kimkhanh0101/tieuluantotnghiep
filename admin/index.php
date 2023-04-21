@@ -1,6 +1,6 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('includes/header.php');
+include('includes/navbar.php');
 include ("../helpers/format.php");
 
 ?>
@@ -16,7 +16,7 @@ include ("../helpers/format.php");
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Thông Tin</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        class="fas fa-download fa-sm text-white-50"></i> Tạo Report</a>
   </div>
 
   <!-- Content Row -->
@@ -30,7 +30,7 @@ include ("../helpers/format.php");
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Thành Viên</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
-              <?php 
+              <?php
                 $admin=new admin();
                 $quantityAdmin=$admin->get_quantity_admin();
                 while($data=mysqli_fetch_array($quantityAdmin)){
@@ -56,22 +56,22 @@ include ("../helpers/format.php");
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh Thu</div>
-              <?php 
+              <?php
                 $fm = new Format();
                 $bill = new bill();
                 $gettotal = $bill->totalprice();
                 if($gettotal){
                   while ($result = $gettotal->fetch_assoc()) {
-                   
+
 
                   ?>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">$ <?php echo $fm->format_currency($result['total']) ?></div>
-              <?php 
+                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $fm->format_currency($result['total']) ?></div>
+              <?php
                   }
                 }
 
                ?>
-              
+
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -117,16 +117,16 @@ include ("../helpers/format.php");
               <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a  style="color: #F6C23E" href="listbill.php">Số Lượng Đơn</a></div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                <?php 
-                
+                <?php
+
                 $pending =$bill->getPending();
                 if($pending){
                   while ($result = $pending->fetch_assoc()) {
-                  
+
                   ?>
                   <?php echo $result['status'] ?>
-                  
-                  <?php 
+
+                  <?php
 
                   }
                 }

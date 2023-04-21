@@ -1,21 +1,21 @@
 <?php
-include('includes/header.php'); 
-include('includes/navbar.php'); 
+include('includes/header.php');
+include('includes/navbar.php');
 
 ?>
 <?php include '../classes/admin.php'?>
-<?php 
+<?php
     $admin = new admin();
     if(!isset($_GET['username']) || $_GET['username']==NULL){
         echo "<script>window.location = 'login.php'</script>";
-        
+
     }else{
         $user = $_GET['username'];
     }
      if(isset($_POST["save"])){
 
          $update_admin = $admin->update_admin($_POST,$user);
-       
+
 
      }
 ?>
@@ -26,19 +26,19 @@ include('includes/navbar.php');
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Thông Tin Admin
-            
+
     </h6>
   </div>
 
   <div class="card-body">
-                <?php 
+                <?php
                     $adminn= $admin->get_Info($user);
                     if($adminn){
                         while($result = $adminn->fetch_assoc()){
-                ?> 
+                ?>
     <form action="" method="POST">
 
-       
+
 
             <div class="form-group">
                 <label> Tên Người Dùng </label>
@@ -55,10 +55,10 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>Mật Khẩu</label>
-                <input type="password" name="changepassword" class="form-control" placeholder="Enter New Password">
+                <input type="password" name="changepassword" class="form-control" placeholder="Nhập mật khẩu mới">
             </div>
-            
-        
+
+
        <?php if (isset($update_admin)) {
                 echo $update_admin;
        } ?>
@@ -67,10 +67,10 @@ include('includes/navbar.php');
             <button type="submit" name="save" class="btn btn-primary">Lưu</button>
         </div>
       </form>
-       <?php 
+       <?php
                 }
             }
-                ?>  
+                ?>
   </div>
 </div>
 
