@@ -7,8 +7,8 @@
                             <a href="./index.php"><img src="img/3.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>  Address: 3/2, Ninh Kiều, Cần Thơ</li>
-                            <li>  Phone: 0962503</li>
+                            <li>  Địa chỉ : 3/2, Ninh Kiều, Cần Thơ</li>
+                            <li>  Số điện thoại: 0962503019</li>
                             <li>  Email: khanhb1910529@student.ctu.edu.vn</li>
                         </ul>
                     </div>
