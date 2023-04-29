@@ -169,7 +169,7 @@ ob_start();
                         </div>
 
                         <!-- <a  class="primary-btn" name="submit">ADD TO CARD</a> -->
-                        <button type="submit" class="site-btn" name="submit">ADD TO CARD</button>
+                        <button type="submit" class="site-btn" name="submit">Thêm vào giỏ hàng</button>
 
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>

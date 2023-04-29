@@ -30,7 +30,7 @@
 			$productName = mysqli_real_escape_string($this->db->link, $data['productName']);
 			$brand = mysqli_real_escape_string($this->db->link, $data['brand']);
 			$category = mysqli_real_escape_string($this->db->link, $data['category']);
-			$size = mysqli_real_escape_string($this->db->link, $data['size']);
+			$size = mysqli_real_escape_string($this->db->link, $data['size'] ?? 55);
 			$price = mysqli_real_escape_string($this->db->link, $data['price']);
 			$description = mysqli_real_escape_string($this->db->link, $data['description']);
 			$type = mysqli_real_escape_string($this->db->link, $data['type']);

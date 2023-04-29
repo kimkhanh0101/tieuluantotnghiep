@@ -73,6 +73,14 @@
 			$result = $this->db->select($query);
 			return $result;
 		}
+		
+		public function get_BillUser($bill){
+
+			$query = "SELECT * FROM tbl_order WHERE order_Id =  '$bill'";
+			$result = $this->db->select($query);
+			return $result;
+		}
+		
 		public function get_Bill_by_Id($id){
 
 			$query = "SELECT a.order_Id, a.date , a.buyer, a.receiver, a.phone,a.email,a.totalprice,a.address, b.name as 'city', c.name as 'dis' FROM tbl_order a, tbl_city b, tbl_district c WHERE a.city=b.matp AND a.district=c.maqh AND order_Id = '$id'";
@@ -135,6 +143,13 @@
 		}
 		public function totalprice(){
 			$query = "SELECT SUM(totalprice)  as 'total' FROM tbl_order ";
+			$result = $this->db->select($query);
+			if($result){
+				return $result;
+			}
+		}
+		public function totalQuantity(){
+			$query = "SELECT SUM(quantity)  as 'total' FROM tbl_orderdetails ";
 			$result = $this->db->select($query);
 			if($result){
 				return $result;

@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                 </select>
             </div>
              <div class="form-group">
-              <label >Category</label>
+              <label >Danh mục</label>
                 <select id="category" name="category" class="form-control">
                     <option>Chọn Danh Mục</option>
 
@@ -93,26 +93,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerbtn'])){
                 </select>
             </div>
              <div class="form-group">
-              <label >Size</label>
+              <label >Kích cỡ</label>
                 <select id="size" name="size" class="form-control">
 
-                  <option>Select size</option>
+                  <option>Chọn size</option>
+                  <option>512</option>
+                  <option>12</option>
                 </select>
             </div>
             <div class="form-group">
 
                 <label> Giá </label>
-                <input type="text" name="price" class="form-control" placeholder="Enter price">
+                <input type="text" name="price" class="form-control" placeholder="Nhập giá">
             </div>
             <div class="form-group">
 
                 <label> Số Lượng </label>
-                <input type="text" name="quantity" class="form-control" placeholder="Enter quantity">
+                <input type="text" name="quantity" class="form-control" placeholder="Nhập số lượng">
             </div>
             <div class="form-group">
 
                 <label> Mô Tả </label>
-                <input type="text" name="description" class="form-control" placeholder="Enter Description">
+                <input type="text" name="description" class="form-control" placeholder="Nhập mô tả">
             </div>
             <div class="form-group">
 

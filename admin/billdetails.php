@@ -71,26 +71,51 @@ h4{
      <form action="" method="POST">
 
   </div>
+  <div class="card-body">
+
+    <div class="table-responsive">
+
+     <form action="" method="POST">
+      <h4>Thông tin người đặt hàng</h4>
+
+
+      <div class="col-12 container">  
+      <ul class="list-unstyled row">
+
+  <li class="list-item col-6 border py-2">ID Đơn hàng</li>
+  <li class="list-item col-6 border py-2">Người đặt</li>
+  <li class="list-item col-6 border py-2">Người nhận</li>
+  <li class="list-item col-6 border py-2">Số điện thoại người nhận</li>
+  <li class="list-item col-6 border py-2">Địa chỉ</li>
+  <li class="list-item col-6 border py-2">Thời gian đặt hàng</li>
+  <li class="list-item col-6 border py-2">Tổng tiền</li>
+</ul>
+          </div>
+
+       </form>
+
+    </div>
+
+  </div>
 
   <div class="card-body">
 
     <div class="table-responsive">
 
      <form action="" method="POST">
-      <h4>PRODUCT ORDER</h4>
+      <h4>Thông tin đặt hàng</h4>
 
 
-        </tbody>
       <div class="scroll">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-
-            <th> Product name </th>
-            <th> Image </th>
-            <th> Size </th>
-            <th> Quantity </th>
-            <th> Price </th>
+            <?php echo var_dump($bill->get_BillUser($id_bill));?>
+            <th> Tên sản phẩm </th>
+            <th> Hình ảnh </th>
+            <th> Kích thước </th>
+            <th> Số lượng </th>
+            <th> Số tiền </th>
           </tr>
         </thead>
         <tbody>

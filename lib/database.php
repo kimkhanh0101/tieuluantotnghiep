@@ -5,8 +5,8 @@ class Database
 {
   public $host   = "127.0.0.1";
   public $user   = "root";
-  public $pass   = "root";
-  public $dbname = "shophoa";
+  public $pass   = "";
+  public $dbname = "shophoanew";
 
 
   public $link;

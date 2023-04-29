@@ -37,7 +37,7 @@ include ("../helpers/format.php");
 
 
                ?>
-               <h4>Số Lượng Admin: <?php echo $data['admin_User'] ?> </h4>
+               <h4>Số Lượng: <?php echo $data['admin_User'] ?> </h4>
               <?php } ?>
               </div>
             </div>
@@ -90,7 +90,20 @@ include ("../helpers/format.php");
               <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Số lượng bán ra</div>
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">30</div>
+                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                    <?php
+                $bill = new bill();
+                $gettotal = $bill->totalQuantity();
+                if($gettotal){
+                  while ($result = $gettotal->fetch_assoc()) {
+                  ?>
+                  <?=$result['total'] ?>
+                   <?php
+                  }
+                }
+
+               ?>
+                  </div>
                 </div>
                 <div class="col">
                   <div class="progress progress-sm mr-2">
@@ -101,7 +114,7 @@ include ("../helpers/format.php");
               </div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+              <i class="fas fa-cart-plus fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -114,7 +127,9 @@ include ("../helpers/format.php");
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><a  style="color: #F6C23E" href="listbill.php">Số Lượng Đơn</a></div>
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                <a  style="color: #F6C23E" href="listbill.php">Số Lượng Đơn</a>
+              </div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                 <?php
@@ -135,7 +150,7 @@ include ("../helpers/format.php");
                </div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
