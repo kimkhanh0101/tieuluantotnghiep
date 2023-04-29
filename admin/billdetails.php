@@ -65,7 +65,7 @@ if(isset($_GET['idbill'])){
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">BILL DETAILS
+            <h6 class="m-0 font-weight-bold text-primary">Chi tiết hóa đơn
 
             </h6>
             <form action="" method="POST">

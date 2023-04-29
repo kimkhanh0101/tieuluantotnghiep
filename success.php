@@ -51,7 +51,6 @@ include 'inc/header.php';
         </h5>
         <h5 class="htest">Chân thành cảm ơn,</h5>
         <br>
-        <h5>Your Friends at Khánh Flower</h5>
         </center>
         
         

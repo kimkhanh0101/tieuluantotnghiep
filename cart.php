@@ -185,7 +185,7 @@
                                             </div>
 
                                         </div>
-                                        <input class="styling" type="submit" name="submitupdate" value="Update"/>
+                                        <input class="styling" type="submit" name="submitupdate" value="Cập nhật"/>
                                         </form>
                                     </td>
 

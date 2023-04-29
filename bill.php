@@ -126,13 +126,13 @@ include 'inc/header.php';
                         <td><?php echo  $fm->format_currency($result['totalprice']) ?></td>
                         <?php
                         if ($result['status']==0) {
-                          echo '<td class="text-danger">Pedding</td>';
+                          echo '<td class="text-danger">Đang xử lý</td>';
                         }elseif($result['status']==1){
-                         echo '<td class="text-success">Shipping</td>';
+                         echo '<td class="text-success">Đang giao hàng</td>';
                         }elseif($result['status']==2)
-                         echo '<td class="text-success">Success</td>';
+                         echo '<td class="text-success">Thành công</td>';
                         else
-                            echo '<td class="text-danger">Canncel</td>';
+                            echo '<td class="text-danger">Trở lại</td>';
                         ?>
 
 

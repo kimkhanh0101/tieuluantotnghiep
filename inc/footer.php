@@ -25,7 +25,6 @@
                           <li><a href="#">Sơ đồ trang web của chúng tôi</a></li>
                         </ul>
                         <ul>
-                            <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Dịch vụ của chúng tôi</a></li>
                             <li><a href="#">Dự án</a></li>
                             <li><a href="#">Liên hệ</a></li>

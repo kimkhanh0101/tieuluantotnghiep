@@ -57,15 +57,15 @@ include('includes/navbar.php');
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter Email">
+                <input type="email" name="email" class="form-control" placeholder="Nhập vào Email">
             </div>
             <div class="form-group">
                 <label>Mật Khẩu</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                <input type="password" name="password" class="form-control" placeholder="Nhập vào mật khẩu">
             </div>
             <div class="form-group">
                 <label>Xác Nhận Mật Khẩu</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password">
+                <input type="password" name="confirmpassword" class="form-control" placeholder="Xác nhận mật khẩu">
             </div>
             <div class="form-group">
               <label >Chức Vụ</label>
@@ -77,8 +77,8 @@ include('includes/navbar.php');
         
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="submit" name="registerbtn" class="btn btn-primary">Lưu</button>
         </div>
       </form>
 
@@ -122,12 +122,12 @@ include('includes/navbar.php');
         <thead>
           <tr>
             <th> ID </th>
-            <th> Username </th>
+            <th> Tài khoản </th>
             <th>Email </th>
-            <th>Password</th>
-            <th>Level</th>
-            <th>Reset Password </th>
-            <th>DELETE </th>
+            <th>Mật khẩu</th>
+            <th>Cấp bậc</th>
+            <th> Thay đổi mật khẩu  </th>
+            <th> Xóa </th>
           </tr>
         </thead>
         <tbody>
@@ -149,7 +149,7 @@ include('includes/navbar.php');
             <td>
                 <form action="" method="post">
                     <input type="hidden" name="edit_user" value="<?php echo $result['admin_User']; ?>">
-                    <button  type="submit" name="edit_btn" class="btn btn-success"> RESET Mật Khẩu </button>
+                    <button  type="submit" name="edit_btn" class="btn btn-success"> Thay đổi </button>
                      <!-- <a href="editadmin.php?username=<?php echo $result['admin_User']?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">EDIT</a> -->
                 </form>
             </td>
